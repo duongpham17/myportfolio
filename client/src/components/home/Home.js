@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import{RiArrowUpSFill, RiArrowDownSFill} from 'react-icons/ri'
 
-
 export const Home = ({portfolio:{crypto}}) => {
 
     return (

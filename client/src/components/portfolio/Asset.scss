@@ -20,6 +20,13 @@
         }
         li{
             display: inline-block;
+            margin: 0 0.2rem;
+        }
+        .profit{
+            color: rgb(26, 192, 81);
+        }
+        .loss{
+            color: rgb(255, 71, 71);
         }
     }
 

@@ -44,20 +44,26 @@ const Asset = props => {
         trackPortfolioValuation(info._id, {"total": calcTotal})
     }
 
+    const percentageChange = (current, newValue) => (((newValue - current) /current) * 100)
+
     return (
         <div className="asset-portfolio-container">
 
             <div className="total-and-info">
                 <button onClick={(e) => updateTrackDate(e)}><IoIosTime className="icon_s_black"/></button>
                 <li>Total: £{calcTotal}</li><br/>
-                <li className={calcProfit < 0 ? "loss" : "profit"}>Profit: £{info.total === 0 ?  "0" : <>{calcProfit}</> }</li> <br/>
+                <li className={calcProfit < 0 ? "loss" : "profit"}>Profit % {percentageChange(info.total, calcTotal).toFixed(2)} : £{info.total === 0 ?  "0" : <>{calcProfit}</> }</li> 
+                <br/>
                 <li>Days : {calcDays}</li>
             </div>
 
             {data.map((el, index) => 
                 <div className="asset" key={index}>
                     <li><button onClick={() => deleteAssetFromPortfolio(info._id, el._id )}><TiDelete className="icon-delete"/></button></li>
-                    <li>{el.name}: {el.amount} x £{findAssetPrice(el.name).toFixed(3)} = £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
+                    <li>{el.name.toUpperCase()} </li>
+                    <li className={percentageChange(el.price,findAssetPrice(el.name)) >= 0 ? "profit" : "loss" }> % {percentageChange(el.price,findAssetPrice(el.name)).toFixed(2)} </li> 
+                    <li>: {el.amount} x £{findAssetPrice(el.name).toFixed(3)} </li>
+                    <li>= £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
                 </div>
             )}
 

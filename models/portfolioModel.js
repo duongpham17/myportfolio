@@ -11,7 +11,7 @@ const portfolioSchema = new mongoose.Schema({
     portfolio:[{
         name: String,
         amount: Number,
-        default: ""
+        price: 0,
     }],
     total: {
         type: Number,

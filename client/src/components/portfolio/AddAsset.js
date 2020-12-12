@@ -7,16 +7,19 @@ import {addAssetToPortfolio} from '../../actions/portfolioActions';
 
 export const AddAssets = props => {
     const addAssetToPortfolio = props.addAssetToPortfolio;
+    const crypto = props.crypto;
     const id = props.id;
 
     const [pickAsset, setPickAsset] = useState(false)
     const [pickedAsset, setPickedAsset] = useState(false)
 
-    const assetsAvailable = ["btc", "ada", "eth", "xrp", "qtum", "zil", "vet", "link", "ltc", "dash", "bnb", "eos"]
+    const assetsAvailable = 
+    ["btc", "ada", "eth", "xrp", "qtum", "zil", "vet", "link", "ltc", "dash", "bnb", "eos", 'xlm', 'xmr', 'icx']
 
     const [data, setData] = useState({
         name: "",
-        amount: ""
+        amount: "",
+        price: 0,
     })
     const {amount} = data
 
@@ -26,9 +29,15 @@ export const AddAssets = props => {
         setPickAsset(false)
     }
 
+    const findAssetPrice = (asset) => { 
+        const index = crypto.findIndex(el => el.symbol === asset)
+        const price = crypto[index].current_price
+        return price
+    }
+
     const pickedCrypto = (e, asset) => {
         e.preventDefault()
-        setData({name: asset})
+        setData({name: asset, price: findAssetPrice(asset)})
         setPickedAsset(true)
     }
     const onChange = e => setData({...data, [e.target.name]: e.target.value})

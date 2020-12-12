@@ -19,7 +19,7 @@ const Info = props => {
                     <DeletePortfolio id={el._id}/>
                     <p>{moment(el.createAt).format("lll").split(" ").slice(0, 3).join(" ")}</p>
                     <h2>{el.label}</h2>
-                    <AddAsset id={el._id}/>
+                    <AddAsset crypto={crypto} id={el._id}/>
                     <Asset data={el.portfolio} crypto={crypto} info={el} />
                 </div>
             )}
