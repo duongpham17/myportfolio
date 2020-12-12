@@ -6,11 +6,15 @@ import {getCryptoData} from '../actions/portfolioActions';
 const LoadUserData = ({auth:{loggedOn}, portfolio:{crypto}, getCryptoData, loadUserData}) => {
 
     useEffect(() => {
-        if(loggedOn) return loadUserData()
+        if(loggedOn){
+            loadUserData()
+        }
     }, [loadUserData, loggedOn])
 
     useEffect(() => {
-        if(!crypto) return getCryptoData()
+        if(!crypto) {
+            getCryptoData()
+        }
     })
 
     return <></>

@@ -41,6 +41,8 @@ import Account from './components/account/Account';
 /* Home */
 import Home from './components/home/Home';
 
+import Testing from './components/home/Testing';
+
 const App = () => {
 
   useEffect(() => {
@@ -60,6 +62,7 @@ const App = () => {
 
           <Switch>
             <Route exact path='/'       component={Home}                    />
+            <Route exact path='/test'       component={Testing}                    />
             <Route exact path='/signup' component={Signup}                  />
             <Route exact path='/login'  component={Login} />
             <Route exact path='/forgot password' component={ForgotPassword} />

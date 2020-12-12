@@ -1,6 +1,7 @@
 import {
     CRYPTO_DATA,
     MY_PORTFOLIO,
+    TESTING
 } from './types';
 
 import {setAlert} from './alertActions';
@@ -15,6 +16,18 @@ export const getCryptoData = () => async dispatch => {
         const res = await axios.get(`https://api.nomics.com/v1/currencies/ticker?key=d40b0fd741d190ca48fdbeb6554307d1&convert=GBP&per-page=100&page=1`)
         dispatch({
             type: CRYPTO_DATA,
+            payload: res.data
+        })
+    } catch(err) {
+        console.log("getCryptoData bad request")
+    }
+}
+
+export const getTestingData = () => async dispatch => {
+    try{
+        const res = await axios.get(`https://catfact.ninja/breeds?limit=1`)
+        dispatch({
+            type: TESTING,
             payload: res.data
         })
     } catch(err) {

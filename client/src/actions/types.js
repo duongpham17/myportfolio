@@ -21,3 +21,5 @@ export const MY_PORTFOLIO = 'MY_PORTFOLIO';
 export const CRYPTO_DATA = 'CRYPTO_DATA ';
 
 
+export const TESTING = 'TESTING';
+

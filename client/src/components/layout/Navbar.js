@@ -13,6 +13,7 @@ const Navbar = ({logout, auth:{loggedOn}}) => {
             <nav>
             <Link to="/"><AiFillHome className="icon_s_white"/></Link>
             <Link to="/portfolio">My.Portfolio</Link>
+            <Link to="/test">Test</Link>
             </nav>
 
             <nav>
