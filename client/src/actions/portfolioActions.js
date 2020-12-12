@@ -1,7 +1,6 @@
 import {
     CRYPTO_DATA,
     MY_PORTFOLIO,
-    TESTING
 } from './types';
 
 import {setAlert} from './alertActions';
@@ -10,24 +9,11 @@ import axios from 'axios';
 
 const defaultError = setAlert("Please Reload", "danger");
 
-//get crypto data
 export const getCryptoData = () => async dispatch => {
     try{
-        const res = await axios.get(`https://api.nomics.com/v1/currencies/ticker?key=d40b0fd741d190ca48fdbeb6554307d1&convert=GBP&per-page=100&page=1`)
+        const res = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h`)
         dispatch({
             type: CRYPTO_DATA,
-            payload: res.data
-        })
-    } catch(err) {
-        console.log("getCryptoData bad request")
-    }
-}
-
-export const getTestingData = () => async dispatch => {
-    try{
-        const res = await axios.get(`https://catfact.ninja/breeds?limit=1`)
-        dispatch({
-            type: TESTING,
             payload: res.data
         })
     } catch(err) {

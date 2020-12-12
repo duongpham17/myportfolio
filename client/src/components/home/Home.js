@@ -5,7 +5,7 @@ import{RiArrowUpSFill, RiArrowDownSFill} from 'react-icons/ri'
 
 
 export const Home = ({portfolio:{crypto}}) => {
-
+    
     return (
         <div className="home-container">
             {!crypto ? <div className="loading">Loading...</div> :
@@ -25,10 +25,10 @@ export const Home = ({portfolio:{crypto}}) => {
                     <tbody>
                     {crypto.map((el, index) => 
                     <tr key={index}>
-                        <td>{el.rank}</td>
-                        <td><img src={el.logo_url} alt="coin"/> {el.name} <p>({el.symbol})</p> </td>
-                        <td>£{Math.abs(el.price).toFixed(5)}</td>
-                        <td className={el["1d"].price_change_pct.includes("-") ? "loss" : "profit"}>{el["1d"].price_change_pct.includes("-") ? <RiArrowDownSFill/> : <RiArrowUpSFill/>} {el["1d"].price_change_pct} % </td>
+                        <td>{el.market_cap_rank}</td>
+                        <td><img src={el.image} alt="coin"/> {el.id} <p>({el.symbol})</p> </td>
+                        <td>£{Math.abs(el.current_price).toFixed(5)}</td>
+                        <td className={el.price_change_percentage_24h < 0 ? "loss" : "profit"}>{el.price_change_percentage_24h < 0 ? <RiArrowDownSFill/> : <RiArrowUpSFill/>} {el.price_change_percentage_24h.toFixed(2)} % </td>
                         <td>£{(el.market_cap / 1000000000).toFixed(3)}B</td>
                         <td>{el.circulating_supply}</td>
                         <td>{el.max_supply}</td>

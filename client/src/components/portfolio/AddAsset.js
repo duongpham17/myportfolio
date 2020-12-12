@@ -12,7 +12,7 @@ export const AddAssets = props => {
     const [pickAsset, setPickAsset] = useState(false)
     const [pickedAsset, setPickedAsset] = useState(false)
 
-    const assetsAvailable = ["ADA", "BTC", "ETH", "XRP", "QTUM", "ZIL", "VET", "LINK", "LTC", "DASH", "XMR", "BNB", "XLM", "EOS", "ICON"]
+    const assetsAvailable = ["btc", "ada", "eth", "xrp", "qtum", "zil", "vet", "link", "ltc", "dash", "bnb", "eos"]
 
     const [data, setData] = useState({
         name: "",
@@ -43,7 +43,7 @@ export const AddAssets = props => {
                 {pickAsset ? 
                     <div className="picking-asset-content">
                         {assetsAvailable.map((el, index) => 
-                            <button className="asset-btn" key={index} onClick={(e) => pickedCrypto(e, el)}>{el}</button>
+                            <button className="asset-btn" key={index} onClick={(e) => pickedCrypto(e, el)}>{el.toUpperCase()}</button>
                         )}
 
                         {pickedAsset ?

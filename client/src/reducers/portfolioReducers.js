@@ -2,14 +2,12 @@
 import {
     CRYPTO_DATA,
     MY_PORTFOLIO,
-    TESTING,
 } from '../actions/types'
 
 const initialState = {
     portfolio: null,
     crypto: null,
     loading: true,
-    test: null, 
 }
 
 export default function(state = initialState, action){
@@ -28,14 +26,6 @@ export default function(state = initialState, action){
                 portfolio: payload,
                 loading: false,
             }
-        case TESTING: 
-            return {
-                ...state, 
-                test: payload,
-                loading: false,
-            }
-            
-            
             default:
                 return state;
         }

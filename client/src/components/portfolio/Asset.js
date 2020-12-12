@@ -17,17 +17,17 @@ const Asset = props => {
         total: ""
     })
 
-    const findAssetPrice = (asset) => { 
-       const index = crypto.findIndex(el => el.symbol === asset)
-       const price = Math.abs(crypto[index].price).toFixed(3)
-       return price
-    }
-
     useEffect(() => {
         setValuation({
-            total: !crypto ? "" : data.map(el => Math.abs(crypto[crypto.findIndex(asset => asset.symbol === el.name)].price) * el.amount)
+            total: !crypto ? "" : data.map(el => Math.abs(crypto[crypto.findIndex(asset => asset.symbol === el.name)].current_price) * el.amount)
         })
     }, [setValuation, crypto, data])
+
+    const findAssetPrice = (asset) => { 
+        const index = crypto.findIndex(el => el.symbol === asset)
+        const price = crypto[index].current_price
+        return price
+    }
 
     //calculate total amount of money
     const calcTotal = !valuation.total || valuation.total.length === 0 ? "" : valuation.total.reduce((a, c) => a + c).toFixed(2)
