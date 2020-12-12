@@ -20,7 +20,10 @@
         }
         li{
             display: inline-block;
-            margin: 0 0.2rem;
+            margin: 0 0.1rem;
+        }
+        li:nth-child(n+5){
+            margin-left: 1.5rem;
         }
         .profit{
             color: rgb(26, 192, 81);
