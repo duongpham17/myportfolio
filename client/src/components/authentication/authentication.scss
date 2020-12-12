@@ -1,0 +1,68 @@
+:root{
+    --auth-color: #7f0fff;
+    --auth-background: rgb(32, 27, 27);
+}
+
+.authentication-container{
+    margin-top: 4rem;
+
+    form{
+        margin: 0 auto;
+        padding:1rem;
+        width: 300px;
+        background-color: var(--auth-background);
+        transition: ease-in-out 0.5s;
+        border-radius: 10px;
+        box-shadow: 0 0px 10px 0px var(--auth-color);
+        &:hover{
+            box-shadow: -15px 15px 20px -3px var(--auth-color);
+        }
+
+
+        p, input, button, a, h2{
+            color: white;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            padding: 0.4rem;
+        }
+        button{
+            padding: 0.5rem 1rem;  
+            font-size: 1rem; 
+            &:hover{
+                background-color: var(--auth-color);
+                box-shadow: 0 6px 20px -3px var(--auth-color);
+            }
+        }
+
+        input{
+            width: 270px;
+            display: block;
+            border: 3px solid white;
+            transition: ease-in-out 0.5s;
+            &:hover{
+                border: 3px solid var(--auth-color);
+                border-right: 15px solid var(--auth-color);
+            }
+        }
+
+        .correct{
+            border: 3px solid var(--auth-color);
+        }
+
+        .see:hover{
+            color: var(--auth-color);
+            cursor: pointer;
+        }
+        
+        .link-to{
+            text-align: center;
+            margin: 1rem 0;
+
+            a:hover{
+                color: var(--auth-color);
+                border-radius: 0;
+                border-bottom: 3px solid var(--auth-color);
+            }
+        }
+    }
+}

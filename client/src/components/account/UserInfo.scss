@@ -1,0 +1,53 @@
+.user-info-container{
+
+    h2{
+        margin: 2rem 0;
+    }
+
+    form{
+        margin: auto;
+        min-width: 280px;
+        max-width: 400px;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px -3px grey;
+        text-align: left;
+        transition: ease-in-out 0.5s;
+        &:hover{
+            box-shadow: 0 5px 12px -3px black;
+        }
+
+        p, input{
+            font-size: 16px;
+        }
+
+        input{
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+            border: 3px solid black;
+            padding: 0.2rem 0.2rem;
+            width: 220px;
+            transition: ease-in-out 0.3s;
+            border-radius: 5px;
+
+            &:hover{
+                color: white;
+                background: black;
+                width: 250px;
+            }
+        }
+
+        button{
+            box-shadow: 0 3px 3px 2px grey;
+            padding: 0.5rem 2rem;
+            &:hover{
+                box-shadow: 0 3px 3px 2px black;
+            }
+        }
+
+        .see-password{
+            cursor: pointer;
+        }
+    }
+
+}

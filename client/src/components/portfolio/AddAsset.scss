@@ -1,0 +1,57 @@
+.add-asset-container{
+    position: absolute;
+    text-align: left;
+    margin-top: -1rem ;
+    padding: 0.2rem 0.2rem;
+    z-index: 2;
+
+    .icon_s_black:hover{
+        color: rgb(111, 0, 255);
+    }
+}
+
+.picking-asset-container{
+    position: relative;
+    margin-top: 1rem;
+    padding: 0.2rem 0.2rem;
+
+    .picking-asset-content{
+        margin-top: -1rem;
+        position: absolute;
+        background-color: white;
+        min-height: 140px;
+        z-index: 1;
+
+        .asset-btn{
+            font-size: 12px;
+            margin: 0.3rem;
+            border-radius: 5px;
+            padding: 0.3rem 0.5rem;
+            box-shadow: 0 2px 4px 0px grey;
+            width: 50px;
+            transition: ease-in-out 0.5s;
+            &:hover{
+                color: white;
+                background-color: black;
+            }
+        }
+
+        form{
+            margin: 1rem auto;
+            display: inline-block;
+
+            input, button{
+                padding: 0.3rem 0.5rem;
+                margin: 0 0.1rem;
+                text-align: center;
+                border-bottom: 3px solid black;
+                border-radius: 0px;
+                transition: ease-in-out 0.5s;
+                &:hover{
+                    border-bottom: 3px solid rgb(111, 0, 255);
+                }
+            }
+        }
+    }
+
+}
