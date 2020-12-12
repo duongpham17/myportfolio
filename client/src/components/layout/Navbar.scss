@@ -3,19 +3,25 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: rgb(32, 27, 27);
+    background-color: var(--main-background);
     
     p, a, button{
         color: white;
-        margin: 0 0.5rem;
+        margin: 0 0.3rem;
         font-size: 18px;
         transition: ease-in-out 0.5s;
         &:hover{
-            color: #3cc1ff;
+            color:var(--main-color);
         }
     }
+    li{
+        display: inline-block;
+    }
     .icon_s_white:hover{
-            color: #3cc1ff;
+        color:var(--main-color);
+    }
+    .dropdown-btn, .middle{
+        display: none;
     }
 }
 
@@ -24,21 +30,59 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.7rem;
-        background-color: rgb(32, 27, 27);
+        padding: 1rem;
+        background-color: var(--main-background);
         
         p, a, button{
+            font-size: 18px;
             color: white;
             margin: 0 0.5rem;
-            font-size: 15px;
             transition: ease-in-out 0.5s;
             &:hover{
-                color: #3cc1ff;
+                color:var(--main-color);
             }
         }
         .icon_s_white:hover{
-                color: #3cc1ff;
+                color:var(--main-color);
         }
+
+        .not-middle{
+            display: none;
+        }
+        .middle{
+            display: block;
+        }
+
+        .logged-on-container{
+            position: relative;
+            margin: auto;
+            .dropdown-btn{
+                display: block;
+            }
+            .dropdown-content{
+                z-index: 20;
+                display: none;
+                background-color: var(--main-background);
+                width: 120px;
+                padding: 0.5rem;
+                margin: 0 -5.2rem;
+                position: absolute;
+                border-radius: 5px;
+                box-shadow: 0 4px 5px -3px var(--main-color);
+
+                    li:nth-child(1){
+                        padding: 0.7rem 0;
+                    }
+
+                    li{
+                        padding: 0.5rem 0;
+                    }
+                } 
+                
+                &:hover .dropdown-content{
+                    display: block;
+                }
+            }
 
     }
 }

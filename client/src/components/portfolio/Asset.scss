@@ -3,6 +3,13 @@
     margin-top: -1rem;
     padding: 0.5rem 0.2rem;
 
+    .profit{
+        color: rgb(26, 192, 81);
+    }
+    .loss{
+        color: rgb(255, 71, 71);
+    }
+
     .asset{
         margin: 0.3rem 0.2rem;
         text-align: left;
@@ -24,12 +31,7 @@
         }
         li:nth-child(n+5){
             margin-left: 1.5rem;
-        }
-        .profit{
-            color: rgb(26, 192, 81);
-        }
-        .loss{
-            color: rgb(255, 71, 71);
+            border-bottom: 3px solid black ;
         }
     }
 
@@ -37,12 +39,6 @@
         margin-bottom: 1rem;
         text-align: left;
 
-        .profit{
-            color: rgb(26, 192, 81);
-        }
-        .loss{
-            color: rgb(255, 71, 71);
-        }
         .icon_s_black{
             transition: ease-in-out 0.5s; 
             &:hover{
