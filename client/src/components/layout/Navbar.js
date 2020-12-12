@@ -1,5 +1,5 @@
 import './Navbar.scss';
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../../actions/authActions';
@@ -11,16 +11,16 @@ const Navbar = ({logout, auth:{loggedOn}}) => {
     return (
         <header className="navbar">
             <nav>
-            <Link to="/"><AiFillHome className="icon_s_white"/></Link>
-            <Link to="/portfolio">My.Portfolio</Link>
+                <Link to="/"><AiFillHome className="icon_s_white"/></Link>
+                <Link to="/portfolio">My.Portfolio</Link>
             </nav>
 
             <nav>
                 {loggedOn ? 
-                <Fragment>
+                <div className="logged-on">
                     <Link to="/account"><RiAccountBoxLine className="icon_s_white"/> Account</Link>
-                    <Link to='/' className="logout" onClick={() => logout()}><RiLogoutBoxRLine className="icon_s_white"/> Logout</Link>
-                </Fragment>
+                    <Link to='/' onClick={() => logout()}><RiLogoutBoxRLine className="icon_s_white"/> Logout</Link>
+                </div>
                 : 
                 <Fragment>
                     <Link to="/login">Login</Link>

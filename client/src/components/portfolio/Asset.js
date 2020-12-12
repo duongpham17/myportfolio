@@ -57,7 +57,7 @@ const Asset = props => {
             {data.map((el, index) => 
                 <div className="asset" key={index}>
                     <li><button onClick={() => deleteAssetFromPortfolio(info._id, el._id )}><TiDelete className="icon-delete"/></button></li>
-                    <li>{el.name}: {el.amount} x £{findAssetPrice(el.name)} = £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
+                    <li>{el.name}: {el.amount} x £{findAssetPrice(el.name).toFixed(3)} = £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
                 </div>
             )}
 

@@ -43,7 +43,7 @@ export const AddAssets = props => {
                 {pickAsset ? 
                     <div className="picking-asset-content">
                         {assetsAvailable.map((el, index) => 
-                            <button className="asset-btn" key={index} onClick={(e) => pickedCrypto(e, el)}>{el.toUpperCase()}</button>
+                            <button className={`asset-btn ${data.name === el ? "picked" : ""}`} key={index} onClick={(e) => pickedCrypto(e, el)}>{el.toUpperCase()}</button>
                         )}
 
                         {pickedAsset ?

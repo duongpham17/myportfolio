@@ -17,5 +17,28 @@
     .icon_s_white:hover{
             color: #3cc1ff;
     }
+}
 
+@media (max-width: 550px){
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.7rem;
+        background-color: rgb(32, 27, 27);
+        
+        p, a, button{
+            color: white;
+            margin: 0 0.5rem;
+            font-size: 15px;
+            transition: ease-in-out 0.5s;
+            &:hover{
+                color: #3cc1ff;
+            }
+        }
+        .icon_s_white:hover{
+                color: #3cc1ff;
+        }
+
+    }
 }

@@ -32,8 +32,12 @@
             transition: ease-in-out 0.5s;
             &:hover{
                 color: white;
-                background-color: black;
+                background-color: black
             }
+        }
+        .picked{
+            background-color: black;
+            color: white;
         }
 
         form{

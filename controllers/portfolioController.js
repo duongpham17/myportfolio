@@ -54,7 +54,7 @@ exports.addAssetToPortfolio = catchAsync(async(req, res, next) => {
         return next (new appError("Max 20 assets", 400))
     }
 
-    port_add_asset.portfolio.unshift({name: req.body.name, amount: req.body.amount})
+    port_add_asset.portfolio.push({name: req.body.name, amount: req.body.amount})
 
     await port_add_asset.save()
 
