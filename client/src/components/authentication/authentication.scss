@@ -5,12 +5,12 @@
         margin: 0 auto;
         padding:1rem;
         width: 300px;
-        background-color: var(--auth-background);
+        background-color: var(--main-background);
         transition: ease-in-out 0.5s;
         border-radius: 10px;
-        box-shadow: 0 0px 10px 0px var(--auth-color);
+        box-shadow: 0 0px 10px 0px var(--main-color);
         &:hover{
-            box-shadow: -15px 15px 20px -3px var(--auth-color);
+            box-shadow: -15px 15px 20px -3px var(--main-color);
         }
 
 
@@ -24,8 +24,8 @@
             padding: 0.5rem 1rem;  
             font-size: 1rem; 
             &:hover{
-                background-color: var(--auth-color);
-                box-shadow: 0 6px 20px -3px var(--auth-color);
+                background-color: var(--main-color);
+                box-shadow: 0 6px 20px -3px var(--main-color);
             }
         }
 
@@ -35,17 +35,17 @@
             border: 3px solid white;
             transition: ease-in-out 0.5s;
             &:hover{
-                border: 3px solid var(--auth-color);
-                border-right: 15px solid var(--auth-color);
+                border: 3px solid var(--main-color);
+                border-right: 15px solid var(--main-color);
             }
         }
 
         .correct{
-            border: 3px solid var(--auth-color);
+            border: 3px solid var(--main-color);
         }
 
         .see:hover{
-            color: var(--auth-color);
+            color: var(--main-color);
             cursor: pointer;
         }
         
@@ -54,9 +54,9 @@
             margin: 1rem 0;
 
             a:hover{
-                color: var(--auth-color);
+                color: var(--main-color);
                 border-radius: 0;
-                border-bottom: 3px solid var(--auth-color);
+                border-bottom: 3px solid var(--main-color);
             }
         }
     }
