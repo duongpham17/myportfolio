@@ -5,7 +5,7 @@ import {getMyPortfolio} from '../../actions/portfolioActions';
 import Create from './Create';
 import Info from './Info';
 
-const Portfolio = ({portfolio:{crypto, portfolio, loading}, getMyPortfolio, getCryptoData}) => {
+const Portfolio = ({portfolio:{crypto, portfolio, loading}, getMyPortfolio}) => {
     
     useEffect(() => {
         getMyPortfolio()
