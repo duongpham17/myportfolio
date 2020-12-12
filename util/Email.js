@@ -71,8 +71,8 @@ const html_body = (message, link2, message2) => { return `
 const Email = () => nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "myportfolio.real@gmail.com",
-        pass: "Sliceofpham17",
+        user: process.env.EMAIL_,
+        pass: process.env.EMAIL_PASSWORD,
     }
 })
 
