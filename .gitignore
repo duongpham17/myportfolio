@@ -5,7 +5,7 @@
 config.env
 /.pnp
 .pnp.js
-.estlintcache
+**estlintcache
 
 # testing
 /coverage

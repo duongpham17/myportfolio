@@ -44,9 +44,7 @@ import Home from './components/home/Home';
 const App = () => {
 
   useEffect(() => {
-    if(document.cookie){
     store.dispatch(loadUser(document.cookie))
-    }
   })
 
   return (
