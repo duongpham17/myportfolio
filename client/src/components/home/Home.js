@@ -26,9 +26,9 @@ export const Home = ({portfolio:{crypto}}) => {
                         <td>{el.market_cap_rank}</td>
                         <td><img src={el.image} alt="coin"/> <span>({el.symbol})</span> {el.id}  </td>
                         <td>£{Math.abs(el.current_price).toFixed(3)}</td>
-                        <td className={el.price_change_percentage_24h < 0 ? "loss" : "profit"}>{el.price_change_percentage_24h < 0 ? <RiArrowDownSFill/> : <RiArrowUpSFill/>} {el.price_change_percentage_24h.toFixed(2)} % </td>
-                        <td>{el.market_cap.toFixed(0).toString().length >= 10 ? `£${(el.market_cap / 1000000000).toFixed(2)} B` : `£${(el.market_cap / 1000000).toFixed(2)} M`} </td>
-                        <td>{el.circulating_supply.toFixed(0).toString().length >= 10 ? `${(el.circulating_supply / 1000000000).toFixed(2)} B` : `${(el.circulating_supply / 1000000).toFixed(2)} M`} </td>
+                        <td className={el.price_change_percentage_24h < 0 ? "loss" : "profit"}>{Number(el.price_change_percentage_24h).toFixed(2) < 0 ? <RiArrowDownSFill/> : <RiArrowUpSFill/>} {Number(el.price_change_percentage_24h).toFixed(2) } % </td>
+                        <td>{el.market_cap ? `£${(el.market_cap / 1000000000).toFixed(2)} B` : `£${(el.market_cap / 1000000).toFixed(2)} M`} </td>
+                        <td>{el.circulating_supply ? `${(el.circulating_supply / 1000000000).toFixed(2)} B` : `${(el.circulating_supply / 1000000).toFixed(2)} M`} </td>
                     </tr>
                     )}
                     </tbody>
