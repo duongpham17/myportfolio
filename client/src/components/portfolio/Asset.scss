@@ -31,18 +31,19 @@
         }
         li:nth-child(n+5){
             margin-left: 1.5rem;
-            border-bottom: 3px solid black ;
+            border-bottom: 2px solid black ;
         }
     }
 
     .total-and-info{
-        margin: 0.5rem 0 ;
+        margin: 0rem 0 ;
         text-align: left;
+        z-index: 10;
 
         .icon_s_black{
             transition: ease-in-out 0.5s; 
             &:hover{
-                color: rgb(0, 102, 255);
+                color:var(--main-color)
             }
         }
         button{

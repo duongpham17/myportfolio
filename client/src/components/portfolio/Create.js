@@ -2,6 +2,9 @@ import './Create.scss';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createNewPortfolio } from '../../actions/portfolioActions';
+import {MdDelete} from 'react-icons/md';
+import {MdPlaylistAdd} from 'react-icons/md';
+import {IoIosTime} from 'react-icons/io';
 
 export const Create = ({createNewPortfolio}) => {
     const [create, setCreate] = useState(false)
@@ -18,6 +21,9 @@ export const Create = ({createNewPortfolio}) => {
 
     return (
         <div className="create-portfolio-container">
+            <p><MdDelete className="icon"/>Delete </p>
+            <p><MdPlaylistAdd className="icon"/>Add </p>
+            <p><IoIosTime className="icon"/>Track Profit </p><br/>
             <button onClick={() => setCreate(!create)}>{ create ? "- Creating Portfolio" : "+ Create Portfolio"}</button>
             {create ? 
                 <form onSubmit={e => onSubmit(e)}>

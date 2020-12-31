@@ -13,8 +13,8 @@ const Footer = () => {
             <button onClick={() => arrowUp()}><ImArrowUp size="1.5rem"/></button><br/>
             <li>&copy; my.portfolio</li>
             <br/>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/privacy">Privacy</Link></li>
+            <li><Link to="/about" onClick={() => arrowUp()}>About</Link></li>
+            <li><Link to="/privacy" onClick={() => arrowUp()}>Privacy</Link></li>
         </footer>
     )
 }
