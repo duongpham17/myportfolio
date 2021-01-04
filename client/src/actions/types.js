@@ -19,4 +19,6 @@ export const LOAD_USER_DATA = 'LOAD_USER_DATA';
 /* Portfolio */
 export const MY_PORTFOLIO = 'MY_PORTFOLIO';
 export const CRYPTO_DATA = 'CRYPTO_DATA ';
-
+export const CREATE_PORTFOLIO = 'CREATE_PORTFOLIO';
+export const DELETE_PORTFOLIO = 'DELETE_PORTFOLIO';
+export const UPDATE_PORTFOLIO = 'UPDATE_PORTFOLIO';

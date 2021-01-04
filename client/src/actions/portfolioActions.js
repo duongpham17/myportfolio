@@ -1,6 +1,9 @@
 import {
     CRYPTO_DATA,
     MY_PORTFOLIO,
+    CREATE_PORTFOLIO,
+    DELETE_PORTFOLIO,
+    UPDATE_PORTFOLIO,
 } from './types';
 
 import {setAlert} from './alertActions';
@@ -44,7 +47,7 @@ export const createNewPortfolio = (data) => async dispatch => {
         }
         const res = await Api.post(`/portfolios/new`, data, config)
         dispatch({
-            type: MY_PORTFOLIO,
+            type: CREATE_PORTFOLIO,
             payload: res.data.portfolio
         })
         dispatch(setAlert(`New Portfolio Created`, "success"))
@@ -58,8 +61,9 @@ export const deletePortfolio = (id) => async dispatch => {
     try{
         const res = await Api.delete(`/portfolios/${id}`)
         dispatch({
-            type: MY_PORTFOLIO,
-            payload: res.data.portfolio
+            type: DELETE_PORTFOLIO,
+            payload: res.data.portfolio,
+            id
         })
         dispatch(setAlert(`Portfolio Deleted`, "success"))
     } catch (err) {
@@ -77,8 +81,9 @@ export const addAssetToPortfolio = (id, data) => async dispatch => {
         }
         const res = await Api.put(`/portfolios/add/${id}`, data, config)
         dispatch({
-            type: MY_PORTFOLIO,
-            payload: res.data.portfolio
+            type: UPDATE_PORTFOLIO,
+            payload: res.data.portfolio,
+            id,
         })
         dispatch(setAlert(`Asset Added`, "success"))
     } catch (err) {
@@ -87,12 +92,13 @@ export const addAssetToPortfolio = (id, data) => async dispatch => {
 }
 
 //delete asset from portfolio router.delete('/remove/:portId/:id',
-export const deleteAssetFromPortfolio = (portId, assetId) => async dispatch => {
+export const deleteAssetFromPortfolio = (id, assetId) => async dispatch => {
     try{
-        const res = await Api.delete(`/portfolios/remove/${portId}/${assetId}`)
+        const res = await Api.delete(`/portfolios/remove/${id}/${assetId}`)
         dispatch({
-            type: MY_PORTFOLIO,
-            payload: res.data.portfolio
+            type: UPDATE_PORTFOLIO,
+            payload: res.data.portfolio,
+            id,
         })
         dispatch(setAlert(`Deleted Asset`, "success"))
     } catch (err) {
@@ -110,8 +116,9 @@ export const trackPortfolioValuation = (id, data) => async dispatch => {
         }
         const res = await Api.patch(`/portfolios/track/${id}`, data, config)
         dispatch({
-            type: MY_PORTFOLIO,
-            payload: res.data.portfolio
+            type: UPDATE_PORTFOLIO,
+            payload: res.data.portfolio,
+            id
         })
         dispatch(setAlert(`Updated Tracking Date`, "success"))
     } catch (err) {

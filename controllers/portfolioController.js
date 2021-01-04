@@ -18,13 +18,11 @@ exports.myPortfolio = catchAsync(async(req, res, next) => {
 })
 
 exports.newPortfolio = catchAsync(async(req, res, next) => {
-    const create_portfolio = await Portfolio.create({label: req.body.label, user: req.user.id})
+    const portfolio = await Portfolio.create({label: req.body.label, user: req.user.id})
 
-    if(!create_portfolio){
+    if(!portfolio){
         return next(new appError("Portfolio has no user", 400))
     }
-
-    const portfolio = await getPortfolio(req.user.id)
 
     res.status(200).json({
         status: "success",
@@ -33,13 +31,11 @@ exports.newPortfolio = catchAsync(async(req, res, next) => {
 })
 
 exports.deletePortfolio = catchAsync(async(req, res, next) => {
-    const delete_portfolio = await Portfolio.findByIdAndDelete(req.params.id)
+    const portfolio = await Portfolio.findByIdAndDelete(req.params.id)
 
-    if(!delete_portfolio){
+    if(!portfolio){
         return next(new appError("Portfolio does not exist", 401))
     }
-
-    const portfolio = await getPortfolio(req.user.id)
 
     res.status(200).json({
         status: "success",
@@ -48,17 +44,15 @@ exports.deletePortfolio = catchAsync(async(req, res, next) => {
 })
 
 exports.addAssetToPortfolio = catchAsync(async(req, res, next) => {
-    const port_add_asset = await Portfolio.findById(req.params.id)
+    const portfolio = await Portfolio.findById(req.params.id)
 
-    if(port_add_asset.portfolio.length >= 20){
+    if(portfolio.portfolio.length >= 20){
         return next (new appError("Max 20 assets", 400))
     }
 
-    port_add_asset.portfolio.push({name: req.body.name, amount: req.body.amount, price: req.body.price})
+    portfolio.portfolio.push({name: req.body.name, amount: req.body.amount, price: req.body.price})
 
-    await port_add_asset.save()
-
-    const portfolio = await getPortfolio(req.user.id)
+    await portfolio.save()
 
     res.status(200).json({
         status: "success",
@@ -67,21 +61,19 @@ exports.addAssetToPortfolio = catchAsync(async(req, res, next) => {
 })
 
 exports.removeAsset = catchAsync(async(req, res, next) => {
-    let port_asset = await Portfolio.findById(req.params.portId)
+    let portfolio = await Portfolio.findById(req.params.portId)
 
-    port_asset.portfolio.find(el => el.id === req.params.id)
+    portfolio.portfolio.find(el => el.id === req.params.id)
 
-    if(!port_asset){
+    if(!portfolio){
         return next( new appError('asset does not exist', 400))
     }
 
-    const index = port_asset.portfolio.indexOf(port_asset.portfolio.find(el => el.id === req.params.id))
+    const index = portfolio.portfolio.indexOf(portfolio.portfolio.find(el => el.id === req.params.id))
 
-    port_asset.portfolio.splice(index, 1)
+    portfolio.portfolio.splice(index, 1)
 
-    await port_asset.save()
-
-    const portfolio = await getPortfolio(req.user.id)
+    await portfolio.save()
 
     res.status(200).json({
         status: "success",
@@ -91,15 +83,13 @@ exports.removeAsset = catchAsync(async(req, res, next) => {
 
 exports.trackPortfolioValuation = catchAsync(async(req, res, next) => {
 
-    const port = await Portfolio.findByIdAndUpdate(req.params.id, {
+    const portfolio = await Portfolio.findByIdAndUpdate(req.params.id, {
         total: req.body.total, days: Date.now()
-    })
+    }, {new: true})
 
-    if(!port){
+    if(!portfolio){
         return next(new appError("Portfolio does not exist", 400))
     }
-
-    const portfolio = await getPortfolio(req.user.id)
 
     res.status(200).json({
         status: "success",

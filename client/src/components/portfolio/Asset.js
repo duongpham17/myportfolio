@@ -62,7 +62,7 @@ const Asset = props => {
                     <li><button onClick={() => deleteAssetFromPortfolio(info._id, el._id )}><TiDelete className="icon-delete"/></button></li>
                     <li>{el.name.toUpperCase()} </li>
                     <li className={percentageChange(el.price,findAssetPrice(el.name)) >= 0 ? "profit" : "loss" }> % {percentageChange(el.price,findAssetPrice(el.name)).toFixed(2)} </li> 
-                    <li>: {el.amount} x £{findAssetPrice(el.name).toFixed(3)} </li>
+                    <li>: {el.amount} x £{findAssetPrice(el.name).toFixed(3)} </li><br/>
                     <li>= £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
                 </div>
             )}
