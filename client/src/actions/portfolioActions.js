@@ -80,7 +80,7 @@ export const addAssetToPortfolio = (id, data) => async dispatch => {
             type: MY_PORTFOLIO,
             payload: res.data.portfolio
         })
-        dispatch(setAlert(`Portfolio Deleted`, "success"))
+        dispatch(setAlert(`Asset Added`, "success"))
     } catch (err) {
         dispatch(defaultError)
     } 
