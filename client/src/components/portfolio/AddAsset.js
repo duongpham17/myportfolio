@@ -58,7 +58,7 @@ export const AddAssets = props => {
                         {pickedAsset ?
                         <form onSubmit={e => onSubmit(e)}>
                             <button>add</button>
-                            <input type="number" placeholder="Enter Amount" name="amount" value={amount || ""} onChange={e => onChange(e)} required max="10000000"/>
+                            <input type="number" placeholder="Enter Amount" name="amount" value={amount || ""} onChange={e => onChange(e)} required max="99999999"/>
                         </form> 
                         : "" }
 
