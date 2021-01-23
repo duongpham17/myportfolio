@@ -11,7 +11,7 @@ const Navbar = ({logout, auth:{loggedOn}}) => {
     return (
         <header className="navbar">
             <nav>
-                <Link to="/"><AiFillHome className="icon_s_white"/></Link>
+                <Link to="/"><AiFillHome className="icon"/></Link>
                 <Link className="not-middle" to="/portfolio">My.Portfolio</Link>
             </nav>
 

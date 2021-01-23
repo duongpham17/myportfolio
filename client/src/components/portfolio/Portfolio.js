@@ -15,13 +15,13 @@ const Portfolio = ({portfolio:{crypto, portfolio, loading}, getMyPortfolio}) => 
 
     return(
         <div>
-            {portfolio && crypto ? 
-            <div>
+            {portfolio && crypto && !loading ? 
+            <div> 
                 <Create />
                 <Info data={portfolio} crypto={crypto} />
             </div>
             : 
-            <div className="loading">{loading ? "Loading..." : ""}</div> 
+            <div className="loading" /> 
             }
         </div>
     )

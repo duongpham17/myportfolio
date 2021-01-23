@@ -3,11 +3,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import{RiArrowUpSFill, RiArrowDownSFill} from 'react-icons/ri'
 
-export const Home = ({portfolio:{crypto}}) => {
+export const Home = ({portfolio:{crypto, loading}}) => {
 
     return (
         <div className="home-container">
-            {!crypto ? <div className="loading">Loading...</div> :
+            {!crypto && loading ? <div className="loading" /> :
             <div className="table-content">
                 <table>
                     <thead>
