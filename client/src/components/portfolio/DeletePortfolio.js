@@ -17,7 +17,7 @@ const Delete = props => {
                 <button onClick={() => props.deletePortfolio(id)}>Sure?</button>
             </div>
             : 
-            <button onClick={() => setSure("sure")}><MdDelete className="icon_s_black"/></button> }
+            <button onClick={() => setSure("sure")}><MdDelete className="icon"/></button> }
         </div>
     )
 }

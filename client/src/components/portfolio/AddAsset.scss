@@ -5,8 +5,8 @@
     padding: 0.2rem 0.2rem;
     z-index: 2;
 
-    .icon_s_black:hover{
-        color: rgb(111, 0, 255);
+    .icon:hover{
+        color: var(--main-color)
     }
 }
 

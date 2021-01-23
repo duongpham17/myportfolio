@@ -29,7 +29,8 @@ const html_style = `
                 border-top: 4px solid #555555
             }
             .message td{
-                padding-bottom: 15rem
+                padding-bottom: 15rem;
+                font-size: 1.2rem;
             }
             .links a {
                 text-decoration: none;
@@ -76,6 +77,41 @@ const Email = () => nodemailer.createTransport({
     }
 })
 
+exports.sendConfirmEmail = async options => {
+    //1) create transporter
+    const transporter = Email()
+
+    //2) Define The email options
+    const mailOptions = {
+        from: 'My.Portfolio <myportfolio.real@gmail.com>',
+        to: options.email,
+        subject: "Confirm Email",
+        html: `
+        <html>
+            ${html_style}
+            <body>
+                <table>
+                <tr class="header">
+                    <td><a href="${websiteLink}">My.Portfolio</a></td>
+                </tr>
+                <tr class="message">
+                    <td>Please Enter this code: ${options.code}</td>
+                </tr>
+                <tr><td></td></tr>
+                <tr class="footer">
+                    <td>
+                        &#169; My.Portfolio. Your own crypto portfolio tracker. Do not reply to this email. Thank you.
+                    </td>
+                </tr>
+                </table>
+            </body>
+        </html>
+        `
+    }
+    //3) Send email
+    await transporter.sendMail(mailOptions)
+}
+
 exports.sendForgotPasswordEmail = async options => {
     //1) create transporter
     const transporter = Email()
@@ -84,12 +120,32 @@ exports.sendForgotPasswordEmail = async options => {
     const mailOptions = {
         from: 'My.Portfolio <myportfolio.real@gmail.com>',
         to: options.email,
-        subject: options.subject,
+        subject: "Reset Password",
         html: `
-            <html>
-                ${html_style}
-                ${html_body("Do not reply to this email. Thank you.", options.url, "Click me to reset your password")}
-            </html>
+        <html>
+            ${html_style}
+            <body>
+                <table>
+                <tr class="header">
+                    <td><a href="${websiteLink}">My.Portfolio</a></td>
+                </tr>
+                <tr class="links">
+                    <td>
+                        <a href=${options.url}>Click me to reset your password</a>
+                    </td>
+                </tr>
+                <tr class="message">
+                    <td>${message}</td>
+                </tr>
+                <tr><td></td></tr>
+                <tr class="footer">
+                    <td>
+                        &#169; My.Portfolio. Your own crypto portfolio tracker. Do not reply to this email. Thank you.
+                    </td>
+                </tr>
+                </table>
+            </body>
+        </html>
         `
     }
     //3) Send email

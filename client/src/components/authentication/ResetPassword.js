@@ -31,7 +31,7 @@ const ResetPassword = ({resetPassword, location, setAlert, auth:{loggedOn}}) => 
     return (
         <div className="reset-password-container">
             <form onSubmit={(e) => onSubmit(e)}>
-                <button className="eyes" type="button" onClick={() => setSee(!see)}>{see ? <AiOutlineEye className="icon_s_white"/> : <AiOutlineEyeInvisible className="icon_s_white"/>}</button><br/>
+                <button className="eyes" type="button" onClick={() => setSee(!see)}>{see ? <AiOutlineEye className="icon"/> : <AiOutlineEyeInvisible className="icon"/>}</button><br/>
                 <input minLength="8" type={see === true ? "text" : "password"} placeholder="New Password" onChange={e => setPass({...pass, password: e.target.value})} required/><br/>
                 <input minLength="8" type={see === true ? "text" : "password"} placeholder="Confirm New Password" onChange={e => setPass({...pass, confirmPassword: e.target.value})} required/><br/>
 

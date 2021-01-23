@@ -1,6 +1,7 @@
 import {
     LOAD_USER,
     SIGNUP,
+    SIGNUP_CONFIRM,
     LOGIN,
     LOGOUT,
     DELETE_ACCOUNT,
@@ -39,10 +40,28 @@ export const signup = (formData) => async dispatch => {
             type: SIGNUP,
             payload: res.data.user
         })
-        dispatch(setAlert('Signed Up', 'success'))
     } catch(err) {
         console.log(err.response)
-        dispatch(setAlert(`${err.response.data.error.keyValue.email || err.response.data.error.keyValue.user} - has been taken.`, 'danger'))
+        dispatch(setAlert(`${err.response.data.message}`, 'danger'))
+    }
+}
+
+//signup confirm
+export const signupConfirm = (formData) => async dispatch => {
+    try{
+        const config = { 
+            headers:{
+                "Content-Type" : "application/json"
+            }
+        };
+        const res = await Api.post(`/users/signup/confirm`, formData, config);
+        dispatch({
+            type: SIGNUP_CONFIRM,
+            payload: res.data.user
+        })
+        dispatch(setAlert('Welcome to Portfolio', 'success'))
+    } catch(err) {
+        dispatch(setAlert(`${err.response.data.message}`, 'danger'))
     }
 }
 

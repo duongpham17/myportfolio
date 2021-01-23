@@ -5,6 +5,7 @@ export const REMOVE_ALERT = 'REMOVE_ALERT';
 /* Authentication */
 export const LOAD_USER = 'LOAD_USER';
 export const SIGNUP = 'SIGNUP';
+export const SIGNUP_CONFIRM = 'SIGNUP_CONFIRM';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';

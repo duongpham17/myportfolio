@@ -5,6 +5,7 @@ import {
     CREATE_PORTFOLIO,
     DELETE_PORTFOLIO,
     UPDATE_PORTFOLIO,
+    LOGOUT,
 } from '../actions/types'
 
 const initialState = {
@@ -46,6 +47,11 @@ export default function(state = initialState, action){
                 ...state,
                 portfolio: state.portfolio.map(el => el._id === action.id ? payload : el),
             }
+        case LOGOUT:
+            return{
+                initialState,
+            }
+
             default:
                 return state;
         }

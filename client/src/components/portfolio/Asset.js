@@ -50,11 +50,9 @@ const Asset = props => {
         <div className="asset-portfolio-container">
 
             <div className="total-and-info">
-                <button onClick={(e) => updateTrackDate(e)}><IoIosTime className="icon_s_black"/></button>
                 <li>Total: £{calcTotal}</li><br/>
-                <li className={calcProfit < 0 ? "loss" : "profit"}>Profit % {percentageChange(info.total, calcTotal).toFixed(2)} : £{info.total === 0 ?  "0" : <>{calcProfit}</> }</li> 
-                <br/>
-                <li>Days : {calcDays}</li>
+                <li className={calcProfit < 0 ? "loss" : "profit"}>Profit % {percentageChange(info.total, calcTotal).toFixed(2)} : £{info.total === 0 ?  "0" : <>{calcProfit}</> }</li> <br/>
+                <li><button onClick={(e) => updateTrackDate(e)}><IoIosTime className="icon"/></button> Days : {calcDays}</li>
             </div>
 
             {data.map((el, index) => 
@@ -66,7 +64,6 @@ const Asset = props => {
                     <li>= £{(findAssetPrice(el.name) * el.amount).toFixed(2)}</li>
                 </div>
             )}
-
         </div>
     )
 } 

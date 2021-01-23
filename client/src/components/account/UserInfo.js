@@ -36,7 +36,7 @@ const UserInfo = ({user:{user}, updateUserInfo}) => {
         <div className="user-info-container">
             <h2>Account Information</h2>
             <form onSubmit={(e) => onSubmit(e)}>
-                <p className="see-password" onClick={() => setSee(!see)}>{see ? <AiFillEye className="icon_s_black"/> : <AiFillEyeInvisible className="icon_s_black"/>} Enter current password to change information:</p>
+                <p className="see-password" onClick={() => setSee(!see)}>{see ? <AiFillEye className="icon"/> : <AiFillEyeInvisible className="icon"/>} Enter current password to change information:</p>
                 <input type={see ? "text" : "password"} name="passwordCurrent" value={passwordCurrent || ""} onChange={e => onChange(e)} minLength="8" required="" />
 
                 <p>Username:</p>
@@ -45,7 +45,7 @@ const UserInfo = ({user:{user}, updateUserInfo}) => {
                 <p>Email:</p>
                 <input type="email" name="email" value={email} onChange={e => onChange(e)} />
 
-                <p className="see-password" onClick={() => setSee(!see)}>{see ? <AiFillEye className="icon_s_black"/> : <AiFillEyeInvisible className="icon_s_black" />} New Password:</p>
+                <p className="see-password" onClick={() => setSee(!see)}>{see ? <AiFillEye className="icon"/> : <AiFillEyeInvisible className="icon" />} New Password:</p>
                 <input type={see ? "text" : "password"} name="password" value={password || ""} onChange={e => onChange(e)} minLength="8" />
 
                 <br/>

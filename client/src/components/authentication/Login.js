@@ -37,8 +37,8 @@ const Login = ({login, auth:{loggedOn}}) => {
             <form onSubmit={e => onSubmit(e)}>
                 <h2>Login</h2>
                 <p>Username or Email</p>
-                <input type="text"  name="user" value={user} onChange={e => onChange(e) }  required minLength="4" maxLength="22" />
-                <p className="see" onClick={() => setSee(!see) }>{see ?  <AiFillEye className="icon_s_white"/> : <AiFillEyeInvisible className="icon_s_white"/> } Password</p>
+                <input type="text"  name="user" value={user} onChange={e => onChange(e) }  required minLength="4" maxLength="50" />
+                <p className="see" onClick={() => setSee(!see) }>{see ?  <AiFillEye className="icon"/> : <AiFillEyeInvisible className="icon"/> } Password</p>
                 <input type={see ? 'text' : 'password'} name="password" value={password} onChange={e => onChange(e) } required minLength="8"  maxLength="45"/>
                 <button>Login</button>
 

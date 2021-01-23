@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 const Portfolio = require('../models/portfolioModel');
 const {appError, catchAsync} = require('../util/CatchError');
-const {sendForgotPasswordEmail}= require('../util/Email');
+const {sendForgotPasswordEmail, sendConfirmEmail}= require('../util/Email');
 const {promisify} = require('util');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto')
@@ -42,9 +42,34 @@ exports.loggedIn = catchAsync(async (req, res) => {
 });
 
 exports.signup = catchAsync(async(req, res, next) => {
-    const {email, password} = req.body
+    const user_exist = await User.find({user: req.body.user})
+    const email_exist = await User.find({email: req.body.email})
 
-    const user = await User.create({user: req.body.user , email, password})
+    if(user_exist.length === 1){
+        return next(new appError("Username already exist", 400))
+    }
+
+    if(email_exist.length === 1){
+        return next(new appError("Email already exist", 400))
+    }
+
+    try{
+        await sendConfirmEmail({
+            email: req.body.email,
+            code: req.body.code,
+        });
+
+        res.status(200).json({
+            status: "success",
+            message: 'Confirmation code sent to email'
+        })
+    } catch (err){
+        return next(new appError("There was an error sending the email. Try again.", 500))
+    }
+})
+
+exports.signupConfirm = catchAsync(async(req, res, next) => {
+    const user = await User.create(req.body)
 
     if(!user){
         return next(new appError("Something went wrong", 400))
@@ -142,7 +167,6 @@ exports.forgotPassword = catchAsync(async(req, res, next) => {
     try{
         await sendForgotPasswordEmail({
             email: user.email,
-            subject: 'Reset Password Link',
             url: resetURL,
         });
 

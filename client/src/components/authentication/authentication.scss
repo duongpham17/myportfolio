@@ -3,7 +3,7 @@
 
     form{
         margin: 0 auto;
-        padding:1rem;
+        padding: 1rem;
         width: 300px;
         background-color: var(--main-background);
         transition: ease-in-out 0.5s;
@@ -12,7 +12,6 @@
         &:hover{
             box-shadow: -15px 15px 20px -3px var(--main-color);
         }
-
 
         p, input, button, a, h2{
             color: white;
@@ -58,6 +57,30 @@
                 border-radius: 0;
                 border-bottom: 3px solid var(--main-color);
             }
+        }
+    }
+
+
+    .confirm-email-content{
+        width: 270px;
+        padding: 0.4rem;
+        text-align: center;
+
+        input{
+            margin: auto;
+            text-align: center;
+            font-size: 1rem;
+            width: 100px;
+            display: block;
+            border: 2px solid white;
+            transition: ease-in-out 0.5s;
+            &:hover{
+                border: 2px solid var(--main-color)
+            }
+        }
+
+        h2{
+            font-size: 1rem;
         }
     }
 }

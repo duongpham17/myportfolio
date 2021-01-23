@@ -2,6 +2,7 @@
 import {
     LOAD_USER,
     SIGNUP,
+    SIGNUP_CONFIRM,
     LOGIN,
     LOGOUT,
     DELETE_ACCOUNT,
@@ -15,7 +16,8 @@ const initialState = {
     user: {},
     loggedOn: false,
     loading: true,
-    sent: false
+    sent: false,
+    confirm: false
 }
 
 export default function(state = initialState, action){
@@ -23,6 +25,12 @@ export default function(state = initialState, action){
     
     switch(type){
         case SIGNUP:
+            return {
+                ...state,
+                confirm: true
+            }
+            
+        case SIGNUP_CONFIRM:
         case LOAD_USER:
         case LOGIN:
         case RESET_PASSWORD:

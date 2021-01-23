@@ -36,22 +36,16 @@
     }
 
     .total-and-info{
-        margin: 0rem 0 ;
+        margin-bottom: 1rem;
         text-align: left;
         z-index: 10;
 
-        .icon_s_black{
-            transition: ease-in-out 0.5s; 
-            &:hover{
-                color:var(--main-color)
-            }
-        }
-        button{
-            position: absolute;
+        .icon:hover{
+            color: var(--main-color)
         }
         li{
             display: inline-block;
-            margin: 0.1rem 3rem;
+            margin: 0.2rem 1.6rem;
         }
     }
 }

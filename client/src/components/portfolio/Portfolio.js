@@ -8,8 +8,10 @@ import Info from './Info';
 const Portfolio = ({portfolio:{crypto, portfolio, loading}, getMyPortfolio}) => {
     
     useEffect(() => {
-        getMyPortfolio()
-    }, [getMyPortfolio])
+        if(!portfolio){
+            getMyPortfolio()
+        }
+    }, [getMyPortfolio, portfolio])
 
     return(
         <div>

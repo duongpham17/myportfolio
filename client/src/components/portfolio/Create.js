@@ -24,7 +24,7 @@ export const Create = ({createNewPortfolio}) => {
             <p><MdDelete className="icon"/>Delete </p>
             <p><MdPlaylistAdd className="icon"/>Add </p>
             <p><IoIosTime className="icon"/>Track Profit </p><br/>
-            <button onClick={() => setCreate(!create)}>{ create ? "- Creating Portfolio" : "+ Create Portfolio"}</button>
+            <button className="create-btn" onClick={() => setCreate(!create)}>{ create ? "- Creating Portfolio" : "+ Create Portfolio"}</button>
             {create ? 
                 <form onSubmit={e => onSubmit(e)}>
                     <input type="text" placeholder="Name of portfolio." onChange={e => setData({label: e.target.value})} required maxLength="15" minLength="3" /><br/>

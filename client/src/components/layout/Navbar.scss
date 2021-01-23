@@ -17,9 +17,6 @@
     li{
         display: inline-block;
     }
-    .icon_s_white:hover{
-        color:var(--main-color);
-    }
     .dropdown-btn, .middle{
         display: none;
     }
@@ -43,7 +40,7 @@
             }
         }
         .icon_s_white:hover{
-                color:var(--main-color);
+            color:var(--main-color);
         }
 
         .not-middle{

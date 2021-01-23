@@ -22,10 +22,10 @@ const Navbar = ({logout, auth:{loggedOn}}) => {
             <nav>
                 {loggedOn ? 
                 <div className="logged-on-container">
-                    <button className="dropdown-btn"><MdAccountBalance className="icon_s_white"/></button>
+                    <button className="dropdown-btn"><MdAccountBalance className="icon"/></button>
                     <div className="dropdown-content">
-                        <li><p><Link to="/account"><RiAccountBoxLine className="icon_s_white"/> Account</Link></p></li>
-                        <li><p><Link to='/' onClick={() => logout()}><RiLogoutBoxRLine className="icon_s_white"/> Logout</Link></p></li>
+                        <li><p><Link to="/account"><RiAccountBoxLine className="icon"/> Account</Link></p></li>
+                        <li><p><Link to='/' onClick={() => logout()}><RiLogoutBoxRLine className="icon"/> Logout</Link></p></li>
                     </div>
                 </div>
                 : 

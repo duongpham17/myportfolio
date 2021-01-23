@@ -45,7 +45,7 @@ export const AddAssets = props => {
     return (
         <Fragment>
             <div className="add-asset-container">
-                <button onClick={() => setPickAsset(!pickAsset)}><MdPlaylistAdd className="icon_s_black"/></button>
+                <button onClick={() => setPickAsset(!pickAsset)}><MdPlaylistAdd className="icon"/></button>
             </div>
 
             <div className="picking-asset-container">
