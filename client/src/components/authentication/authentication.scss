@@ -1,11 +1,12 @@
 .authentication-container{
     margin-top: 4rem;
+    padding: 0.5rem;
 
     form{
         text-align: center;
         margin: 0 auto;
         padding: 1rem;
-        width: 300px;
+        max-width: 300px;
         background-color: var(--main-background);
         transition: ease-in-out 0.5s;
         border-radius: 10px;
@@ -35,7 +36,7 @@
         }
 
         input{
-            width: 270px;
+            width: 94%;
             display: block;
             border: 3px solid white;
             transition: ease-in-out 0.5s;
@@ -65,6 +66,22 @@
         }
     }
 
+    .loading_2:before {
+        content: "";
+        position: absolute;
+        left:0;
+        right:0;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 0.5rem;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 4px solid var(--main-color);
+        border-top-color: var(--main-background);
+        border-right: 1px solid transparent;
+        animation: spinner 0.7s linear infinite;
+    }
 
     .confirm-email-content{
         width: 270px;

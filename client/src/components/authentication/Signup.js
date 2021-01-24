@@ -1,5 +1,5 @@
 import './authentication.scss';
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 import {signup, signupConfirm} from '../../actions/authActions';
@@ -10,6 +10,7 @@ import {AiFillEyeInvisible, AiFillEye} from 'react-icons/ai';
 const Signup = ({signup, signupConfirm, setAlert, auth:{loggedOn, confirm}}) => {
 
     const [see, setSee] = useState(false)
+    const [check, setCheck] = useState(false)
 
     const [formData, setFormData] = useState({
         email: "",
@@ -24,11 +25,14 @@ const Signup = ({signup, signupConfirm, setAlert, auth:{loggedOn, confirm}}) => 
 
     const onSubmit = (e, type) => {
         e.preventDefault()
+        setCheck(true)
         if(type === "verify"){
             if(password !== passwordConfirm){
                 setAlert("Passwords Don't Match.", "danger")
+                setCheck(false)
             } else {
                 signup(formData)
+                setTimeout(function(){ setCheck(false) }, 2000);
             }
         }
 
@@ -60,7 +64,9 @@ const Signup = ({signup, signupConfirm, setAlert, auth:{loggedOn, confirm}}) => 
                 <input type={see ? 'text' : 'password'} className={password === passwordConfirm && password.length === 8 ? "correct" : ""}  name="password" value={password} onChange={e => onChange(e) } required minLength="8"  maxLength="45"/>
                 <p>Password Confirm</p>
                 <input type={see ? 'text' : 'password'} className={password === passwordConfirm && password.length === 8 ? "correct" : ""}  name="passwordConfirm" value={passwordConfirm} onChange={e => onChange(e) } required minLength="8" maxLength="45" />
-                <button>Create</button>
+                {check ?<Fragment> <div className="loading_2" /> <br/><br/></Fragment> :
+                    <button>Create</button>
+                }
 
                 <div className="link-to">
                     <Link to="/login">Already got account? Login</Link>
@@ -69,7 +75,7 @@ const Signup = ({signup, signupConfirm, setAlert, auth:{loggedOn, confirm}}) => 
             :
             <form className="confirm-email-content" onSubmit={e => onSubmit(e, "confirm")} >
                 <h2>Please Check <br/><br/> {formData.email} <br/><br/>  For the code.</h2>
-                <input type="text" placeholder="Enter code here" name="code_confirm" value={code_confirm} onChange={(e) => onChange(e) }  />
+                <input type="text" placeholder="Code" name="code_confirm" value={code_confirm} onChange={(e) => onChange(e) }  />
                 <br/>
                 <button>Confirm</button>
             </form>
