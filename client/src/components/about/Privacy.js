@@ -8,8 +8,8 @@ const Privacy = props => {
     return (
         <div className="about-container">
             <p>
-                <AiOutlineMail className="icon"/> On signing up you can give your real email or fake email. 
-                Real email can be used to recover your account and fake email can only be used for login.  
+                <AiOutlineMail className="icon"/> On signing up you must give a real email, this will prevent bots from spamming fake accounts. 
+                The real email account will help you recover your account in the case you forget your password.
             </p>
             
             <p>

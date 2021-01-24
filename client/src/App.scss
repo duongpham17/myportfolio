@@ -16,24 +16,6 @@ body {
 .body{
     min-height: 100vh;
 }
-footer{
-    margin-top: 5rem;
-    min-height: 7rem;
-    background-color: var(--main-background);
-    text-align: center;
-
-    a, button, li{
-        color: white;
-        margin: 0.3rem 0.3rem;
-        transition: ease-in-out 0.5s;
-        &:hover{
-            color: var(--main-color);
-        }
-   }
-   li{
-       display: inline-block;
-   }
-}
 
 a, li, input, button, p{
     text-decoration: none;

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {logout} from '../../actions/authActions';
 import {RiAccountBoxLine, RiLogoutBoxRLine} from 'react-icons/ri';
 import {AiFillHome} from 'react-icons/ai';
-import {MdAccountBalance} from 'react-icons/md';
+import {GiHamburgerMenu} from 'react-icons/gi';
 
 const Navbar = ({logout, auth:{loggedOn}}) => { 
     return (
@@ -22,7 +22,7 @@ const Navbar = ({logout, auth:{loggedOn}}) => {
             <nav>
                 {loggedOn ? 
                 <div className="logged-on-container">
-                    <button className="dropdown-btn"><MdAccountBalance className="icon"/></button>
+                    <button className="dropdown-btn"><GiHamburgerMenu className="icon"/></button>
                     <div className="dropdown-content">
                         <li><p><Link to="/account"><RiAccountBoxLine className="icon"/> Account</Link></p></li>
                         <li><p><Link to='/' onClick={() => logout()}><RiLogoutBoxRLine className="icon"/> Logout</Link></p></li>
