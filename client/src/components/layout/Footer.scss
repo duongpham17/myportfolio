@@ -53,17 +53,17 @@ footer{
     .wave-1{
         -webkit-background-size:50% 80px;
         background-size: 50% 80px;
-        animation: animate 30s linear infinite;
+        animation: animate 10s linear infinite;
     }
     .wave-2{
         -webkit-background-size:50% 100px;
         background-size: 50% 100px;
-        animation: animate 15s linear infinite;
+        animation: animate 10s linear infinite;
     }
     .wave-3{
         -webkit-background-size:50% 100px;
         background-size: 50% 100px;
-        animation: animate 15s linear infinite;
+        animation: animate 10s linear infinite;
     }
 
     @keyframes animate{
