@@ -49,7 +49,8 @@ export default function(state = initialState, action){
             }
         case LOGOUT:
             return{
-                initialState,
+                ...state,
+                portfolio: null
             }
 
             default:
