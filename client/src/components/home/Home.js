@@ -9,7 +9,6 @@ export const Home = ({portfolio:{crypto, loading}}) => {
         <div className="home-container">
             {!crypto && loading ? <div className="loading" /> :
             <div className="table-content">
-                <h1>Prices</h1>
                 <table>
                     <thead>
                     <tr>
